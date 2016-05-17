@@ -19,8 +19,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    Button b, b2;
-    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        b = (Button) findViewById(R.id.button);
-        b2 = (Button) findViewById(R.id.button);
-        textView = (TextView) findViewById(R.id.textView);
-        b.setOnClickListener(this);
-        b2.setOnClickListener(this);
     }
 
     @Override
@@ -70,27 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.button:
-                Diet diet = new Diet();
-                diet.setName("Цветная диета");
-                diet.setTime("2 недели");
-                diet.setWeight("15 кг");
-                diet.setDescription("бла бла бла");
-                try {
-                    DietDAO dietDAO = HelperFactory.getHelper().getDietDAO();
-                    dietDAO.create(diet);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            case R.id.button2:
-                try {
-                    DietDAO dietDAO = HelperFactory.getHelper().getDietDAO();
-                    List<Diet> diet2 = dietDAO.getAllDiets();
-                    textView.setText(diet2.get(0).getDescription());
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-        }
+
+        
     }
 }
