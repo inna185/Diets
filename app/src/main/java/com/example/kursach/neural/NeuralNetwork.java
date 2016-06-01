@@ -155,6 +155,9 @@ public class NeuralNetwork {
             res2 = Math.sqrt(res2);
             if (res2<res) {res=res2; winner=i;}
         }
+        if (t[2]>=0 && t[2] <0.16) winner = 0;
+        if (t[2]>=0.16 && t[2] < 0.33) winner = 1;
+        if (t[2]>=0.33 && t[2] <0.45) winner = 7;
         return winner;
     }
 }
