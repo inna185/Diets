@@ -61,4 +61,5 @@ public class Diet{
     public void setWeight(String weight) {
         this.weight = weight;
     }
+
 }

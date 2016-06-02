@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.example.kursach.orm.Diet;
 import com.example.kursach.orm.DietDAO;
 import com.example.kursach.orm.HelperFactory;
+import com.example.kursach.orm.User;
 
 import java.sql.SQLException;
 import java.util.List;
