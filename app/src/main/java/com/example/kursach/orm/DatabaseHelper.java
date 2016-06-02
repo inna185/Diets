@@ -16,11 +16,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String TAG = DatabaseHelper.class.getSimpleName();
 
-    private static final String DATABASE_NAME ="diet.db";
+    private static final String DATABASE_NAME ="diet1.db";
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private DietDAO dietDao = null;
+
+    private UserDAO userDao = null;
 
     public DatabaseHelper(Context context){
         super(context,DATABASE_NAME, null, DATABASE_VERSION);
@@ -31,6 +33,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try
         {
             TableUtils.createTable(connectionSource, Diet.class);
+            TableUtils.createTable(connectionSource, User.class);
         }
         catch (SQLException e){
             Log.e(TAG, "error creating DB " + DATABASE_NAME);
@@ -43,6 +46,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                           int newVer){
         try{
             TableUtils.dropTable(connectionSource, Diet.class, true);
+            TableUtils.dropTable(connectionSource, User.class, true);
             onCreate(db, connectionSource);
         }
         catch (SQLException e){
@@ -58,9 +62,17 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return dietDao;
     }
 
+    public UserDAO getUserDAO() throws SQLException {
+        if (userDao == null) {
+            userDao = new UserDAO(getConnectionSource(), User.class);
+        }
+        return userDao;
+    }
+
     @Override
     public void close(){
         super.close();
         dietDao = null;
+        userDao = null;
     }
 }
