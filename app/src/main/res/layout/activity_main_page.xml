@@ -9,4 +9,56 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainPage">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/home"
+            android:src="@drawable/home"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="onClick"
+            />
+
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/profile"
+            android:id="@+id/profile"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="onClick"/>
+
+        <ImageButton
+
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/diet"
+            android:id="@+id/diets"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="onClick"/>
+
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/exit"
+            android:id="@+id/exit"
+            android:layout_alignTop="@+id/imageButton"
+            android:layout_alignEnd="@+id/linearLayout"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="onClick" />
+
+    </LinearLayout>
+
 </RelativeLayout>
