@@ -1,6 +1,8 @@
 package com.example.kursach.orm;
 
 import com.j256.ormlite.dao.BaseDaoImpl;
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 
 import java.sql.SQLException;
@@ -34,5 +36,13 @@ public class UserDAO extends BaseDaoImpl<User, Integer> {
 
     public void updateUser(User user) throws SQLException {
         this.update(user);
+    }
+
+    public List<User> getUserByLogin(String login)  throws SQLException{
+        QueryBuilder<User, Integer> queryBuilder = queryBuilder();
+        queryBuilder.where().eq("login", login);
+        PreparedQuery<User> preparedQuery = queryBuilder.prepare();
+        List<User> userList =query(preparedQuery);
+        return userList;
     }
 }

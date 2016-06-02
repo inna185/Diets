@@ -1,5 +1,6 @@
 package com.example.kursach;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,12 +22,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
+    Button btnlogin, btnreg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setVisibility(View.GONE);
         setSupportActionBar(toolbar);
 
        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -37,9 +39,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setAction("Action", null).show();
             }
         });
+        fab.setVisibility(View.GONE);
 
-        System.out.println("dsg");
+        btnlogin = (Button) findViewById(R.id.btnlogin);
+        btnreg = (Button) findViewById(R.id.btnreg);
 
+        btnreg.setOnClickListener(this);
     }
 
     @Override
@@ -67,5 +72,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.btnreg:
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
+        }
     }
 }

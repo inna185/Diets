@@ -22,10 +22,10 @@ public class User {
     @DatabaseField(canBeNull = false, dataType = DataType.STRING)
     private String name;
 
-    @DatabaseField(canBeNull = false, dataType = DataType.STRING)
+    @DatabaseField(canBeNull = true, dataType = DataType.STRING)
     private String weight;
 
-    @DatabaseField(canBeNull = false, dataType = DataType.STRING)
+    @DatabaseField(canBeNull = true, dataType = DataType.STRING)
     private String growth;
 
     @DatabaseField(foreign = true)
