@@ -22,6 +22,9 @@ public class Diet{
     @DatabaseField(canBeNull = false, dataType = DataType.STRING)
     private String description;
 
+    @DatabaseField(canBeNull = false, dataType = DataType.STRING)
+    private String neuron;
+
     public int getId() {
         return id;
     }

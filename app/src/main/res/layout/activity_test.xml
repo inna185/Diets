@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:width="430px"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/etWeight"
         android:layout_alignBottom="@+id/textView8"
         android:layout_toEndOf="@+id/textView9" />
 
@@ -56,15 +56,15 @@
         android:width="415px"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:id="@+id/editText2"
+        android:id="@+id/etGrouth"
         android:layout_above="@+id/textView10"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignStart="@+id/etWeight" />
 
     <EditText
         android:layout_width="wrap_content"
         android:width="280px"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
+        android:id="@+id/etGoal"
         android:layout_above="@+id/textView11"
         android:layout_toEndOf="@+id/textView11" />
 
@@ -73,7 +73,7 @@
         android:width="250px"
         android:layout_marginLeft="10dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText4"
+        android:id="@+id/etTime"
         android:layout_alignBottom="@+id/textView11"
         android:layout_toEndOf="@+id/textView11" />
 
@@ -82,8 +82,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView3"
         android:src="@drawable/test"
-        android:layout_above="@+id/editText"
-        android:layout_alignEnd="@+id/editText2"
+        android:layout_above="@+id/etWeight"
+        android:layout_alignEnd="@+id/etGrouth"
         android:layout_alignStart="@+id/textView8"
         android:layout_alignParentTop="true" />
 
@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:text="Узнать результат"
         android:width="300px"
-        android:id="@+id/button"
+        android:id="@+id/btnResult"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="37dp"

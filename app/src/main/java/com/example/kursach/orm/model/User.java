@@ -31,6 +31,9 @@ public class User {
     @DatabaseField(canBeNull = true, dataType = DataType.STRING)
     private String goal;
 
+    @DatabaseField(canBeNull = true, dataType = DataType.STRING)
+    private String time;
+
     @DatabaseField(foreign = true)
     private Diet diet;
 
@@ -104,5 +107,13 @@ public class User {
 
     public void setGoal(String goal) {
         this.goal = goal;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }
