@@ -61,6 +61,7 @@
         android:id="@+id/login"
         android:width="250px"
         android:background="#b9d5ba"
+        android:onClick="onClick"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/textView5" />
 
@@ -71,6 +72,7 @@
         android:id="@+id/cancelLogIn"
         android:width="250px"
         android:background="#b9d5ba"
+        android:onClick="onClick"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/textView7" />
 </RelativeLayout>

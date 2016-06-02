@@ -7,6 +7,60 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainPage">
+    tools:context="com.example.kursach.MainPage">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/text"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/home"
+            android:src="@drawable/home"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:onClick="onClick"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/diet"
+            android:src="@drawable/diet"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:onClick="onClick"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile"
+            android:src="@drawable/profile"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:onClick="onClick"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/exit"
+            android:src="@drawable/exit"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:onClick="onClick" />
+    </LinearLayout>
 
 </RelativeLayout>

@@ -1,19 +1,38 @@
 package com.example.kursach;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
-public class MainPage extends AppCompatActivity implements View.OnClickListener{
+import com.example.kursach.orm.HelperFactory;
+import com.example.kursach.orm.model.User;
+
+import java.sql.SQLException;
+
+public class MainPage extends AppCompatActivity implements View.OnClickListener {
+    public static User user;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+
+            editText.setText(user.getName().toString());
+
+
     }
 
     @Override
     public void onClick(View v) {
-
+        switch(v.getId()) {
+            case R.id.exit:
+                user = null;
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

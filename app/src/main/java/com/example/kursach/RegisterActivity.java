@@ -4,6 +4,7 @@ package com.example.kursach;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +17,6 @@ import java.sql.SQLException;
 
 public class RegisterActivity extends Activity implements View.OnClickListener{
     EditText etLogin, etPassword, etName, etAge;
-    Button btnRegister, btnCancel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,18 +27,13 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
         etPassword = (EditText) findViewById(R.id.etPassword);
         etName = (EditText) findViewById(R.id.etName);
         etAge = (EditText) findViewById(R.id.etAge);
-
-        btnRegister = (Button) findViewById(R.id.reg);
-        btnRegister.setOnClickListener(this);
-
-        btnCancel = (Button) findViewById(R.id.cancelReg);
-        btnRegister.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.reg:
+                Log.d("Register", " Click reg");
                 if (Integer.valueOf(etAge.getText().toString()) < 0 &&
                         Integer.valueOf(etAge.getText().toString()) > 80){
                     Toast toast = Toast.makeText(getApplicationContext(),
@@ -53,6 +48,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
                     user.setName(etName.getText().toString());
                     user.setAge(etAge.getText().toString());
 
+                    Log.d("Register", " etLogin "+etLogin.getText().toString());
+
                     try {
                         HelperFactory.getHelper().getUserDAO().getAllUsers();
                         for (User user1 : HelperFactory.getHelper().getUserDAO().getAllUsers()){
@@ -64,6 +61,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
                             }
                         }
                         HelperFactory.getHelper().getUserDAO().createUser(user);
+                        Intent intent = new Intent(this, MainPage.class);
+                        MainPage.user = user;
+                        startActivity(intent);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -75,6 +75,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
                 }
                 break;
             case R.id.cancelReg:
+                Log.d("Register", " CLick cencal");
+
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;

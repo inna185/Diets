@@ -16,7 +16,6 @@ import java.sql.SQLException;
 public class LogIn extends AppCompatActivity implements View.OnClickListener {
 
     EditText login, password;
-    Button btnRegister, btnCancel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +23,6 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
 
         login = (EditText) findViewById(R.id.edLoginForL);
         password = (EditText) findViewById(R.id.edPasswordForL);
-
-        btnRegister = (Button) findViewById(R.id.login);
-        btnRegister.setOnClickListener(this);
-
-        btnCancel = (Button) findViewById(R.id.cancelLogIn);
-        btnRegister.setOnClickListener(this);
     }
 
     @Override
@@ -43,8 +36,8 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
                             if(user.getLogin().equals(login.getText().toString())){
                                 if(user.getPassword().equals(password.getText().toString()))
                                 {
-                                    Intent intent = new Intent(this, MainActivity.class);
-                                    intent.putExtra("userId", user.getId());
+                                    Intent intent = new Intent(this, MainPage.class);
+                                    MainPage.user = user;
                                     startActivity(intent);
                                     break;
                                 }
