@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kursach.orm.HelperFactory;
-import com.example.kursach.orm.User;
+import com.example.kursach.orm.model.User;
 
 import java.sql.SQLException;
 

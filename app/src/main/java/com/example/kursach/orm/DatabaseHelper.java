@@ -5,6 +5,10 @@ import java.sql.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.kursach.orm.dao.DietDAO;
+import com.example.kursach.orm.dao.UserDAO;
+import com.example.kursach.orm.model.Diet;
+import com.example.kursach.orm.model.User;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;

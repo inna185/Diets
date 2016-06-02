@@ -1,11 +1,9 @@
-package com.example.kursach.orm;
+package com.example.kursach.orm.dao;
 
 import java.sql.SQLException;
 
-import com.example.kursach.orm.Diet;
+import com.example.kursach.orm.model.Diet;
 import com.j256.ormlite.dao.BaseDaoImpl;
-import com.j256.ormlite.stmt.PreparedQuery;
-import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 
 import java.util.List;
@@ -15,7 +13,7 @@ import java.util.List;
  */
 public class DietDAO extends BaseDaoImpl<Diet, Integer>{
 
-    protected DietDAO(ConnectionSource connectionSource,
+    public DietDAO(ConnectionSource connectionSource,
                       Class<Diet> dataClass) throws SQLException{
         super(connectionSource, dataClass);
     }

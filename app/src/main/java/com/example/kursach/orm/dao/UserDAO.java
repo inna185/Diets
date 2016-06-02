@@ -1,5 +1,6 @@
-package com.example.kursach.orm;
+package com.example.kursach.orm.dao;
 
+import com.example.kursach.orm.model.User;
 import com.j256.ormlite.dao.BaseDaoImpl;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class UserDAO extends BaseDaoImpl<User, Integer> {
 
-    protected UserDAO(ConnectionSource connectionSource,
+    public UserDAO(ConnectionSource connectionSource,
                       Class<User> dataClass) throws SQLException {
         super(connectionSource, dataClass);
     }
