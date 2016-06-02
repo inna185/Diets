@@ -1,5 +1,6 @@
-package com.example.kursach.orm;
+package com.example.kursach.orm.model;
 
+import com.example.kursach.orm.model.Diet;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -27,6 +28,12 @@ public class User {
 
     @DatabaseField(canBeNull = true, dataType = DataType.STRING)
     private String growth;
+
+    @DatabaseField(canBeNull = false, dataType = DataType.STRING)
+    private String age;
+
+    @DatabaseField(canBeNull = true, dataType = DataType.STRING)
+    private String goal;
 
     @DatabaseField(foreign = true)
     private Diet diet;
@@ -85,5 +92,21 @@ public class User {
 
     public void setDiet(Diet diet) {
         this.diet = diet;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getGoal() {
+        return goal;
+    }
+
+    public void setGoal(String goal) {
+        this.goal = goal;
     }
 }
