@@ -5,10 +5,6 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-/**
- * Created by 1 on 02.06.2016.
- */
-
 @DatabaseTable(tableName = "user")
 public class User {
     @DatabaseField(generatedId = true)

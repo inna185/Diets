@@ -9,9 +9,6 @@ import com.j256.ormlite.support.ConnectionSource;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Created by 1 on 02.06.2016.
- */
 public class UserDAO extends BaseDaoImpl<User, Integer> {
 
     public UserDAO(ConnectionSource connectionSource,

@@ -1,7 +1,7 @@
 package com.example.kursach.neural;
 
 /**
- * Created by 1 on 02.06.2016.
+ * Created by apple on 02.06.2016.
  */
 public class DataNormalization {
 

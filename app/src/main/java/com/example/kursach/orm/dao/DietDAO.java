@@ -8,9 +8,6 @@ import com.j256.ormlite.support.ConnectionSource;
 
 import java.util.List;
 
-/**
- * Created by 1 on 12.05.2016.
- */
 public class DietDAO extends BaseDaoImpl<Diet, Integer>{
 
     public DietDAO(ConnectionSource connectionSource,
