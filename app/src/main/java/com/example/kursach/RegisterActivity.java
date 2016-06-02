@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 public class RegisterActivity extends Activity implements View.OnClickListener{
     EditText etLogin, etPassword, etName, etAge;
-    Button btnRegister;
+    Button btnRegister, btnCancel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +27,11 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
         etPassword = (EditText) findViewById(R.id.etPassword);
         etName = (EditText) findViewById(R.id.etName);
         etAge = (EditText) findViewById(R.id.etAge);
-        btnRegister = (Button) findViewById(R.id.reg);
 
+        btnRegister = (Button) findViewById(R.id.reg);
+        btnRegister.setOnClickListener(this);
+
+        btnCancel = (Button) findViewById(R.id.cancelReg);
         btnRegister.setOnClickListener(this);
     }
 

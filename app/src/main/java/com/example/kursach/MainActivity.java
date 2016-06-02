@@ -21,20 +21,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar.setVisibility(View.GONE);
         setSupportActionBar(toolbar);
 
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        fab.setVisibility(View.GONE);
-
         btnlogin = (Button) findViewById(R.id.btnlogin);
         btnreg = (Button) findViewById(R.id.btnreg);
 
         btnreg.setOnClickListener(this);
+        btnlogin.setOnClickListener(this);
     }
 
     @Override
@@ -62,10 +53,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch(v.getId()){
             case R.id.btnreg:
-                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.btnlogin:
+                intent = new Intent(this, LogIn.class);
+                startActivity(intent);
+                break;
         }
     }
 }
