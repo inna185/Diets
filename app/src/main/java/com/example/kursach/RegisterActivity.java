@@ -34,8 +34,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
         switch(v.getId()){
             case R.id.reg:
                 Log.d("Register", " Click reg");
-                if (Integer.valueOf(etAge.getText().toString()) < 0 &&
-                        Integer.valueOf(etAge.getText().toString()) > 80){
+                if (etAge.getText().toString().length()>0 && Integer.valueOf(etAge.getText().toString()) < 0 ||
+                        etAge.getText().toString().length()>0 && Integer.valueOf(etAge.getText().toString()) > 80){
                     Toast toast = Toast.makeText(getApplicationContext(),
                             "Возраст неверен!", Toast.LENGTH_SHORT);
                     toast.show();
@@ -61,8 +61,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
                             }
                         }
                         HelperFactory.getHelper().getUserDAO().createUser(user);
-                        Intent intent = new Intent(this, MainPage.class);
+                        Log.d("Register", "Reg success");
                         MainPage.user = user;
+                        Intent intent = new Intent(this, MainPage.class);
                         startActivity(intent);
                     } catch (SQLException e) {
                         e.printStackTrace();
