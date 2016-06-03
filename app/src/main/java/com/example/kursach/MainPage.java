@@ -14,15 +14,24 @@ import java.sql.SQLException;
 
 public class MainPage extends AppCompatActivity implements View.OnClickListener {
     public static User user;
-    private TextView editText;
+    private TextView tvHeader, tvDescription, tvDescription2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-        editText = (TextView) findViewById(R.id.text);
-        editText.setText(user.getName().toString());
+        tvHeader = (TextView) findViewById(R.id.tvHeader);
+        tvDescription = (TextView) findViewById(R.id.tvDescription);
+        tvDescription2 = (TextView) findViewById(R.id.tvDescription2);
+
+        tvHeader.setText("Здравствуйте, "+user.getName().toString());
+        if (user.getDiet() == null)
+        tvDescription.setText("Для того, чтобы определить подходящую для Вас диету, пройдите тест!");
+        else {
+            tvDescription.setText("Подобранная для Вас диета: " + user.getDiet().getName());
+            tvDescription2.setText(user.getDiet().getDescription());
+        }
     }
 
     @Override
@@ -33,6 +42,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
+
         }
     }
 }

@@ -52,6 +52,8 @@ public class TestActivity extends Activity implements View.OnClickListener{
                 try {
                     Diet diet = HelperFactory.getHelper().getDietDAO().getDietByNeuron(winner.toString()).get(0);
                     MainPage.user.setDiet(diet);
+                    Intent intent = new Intent(this, MainPage.class);
+                    startActivity(intent);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
