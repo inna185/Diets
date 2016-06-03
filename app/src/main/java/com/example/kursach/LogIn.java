@@ -36,8 +36,8 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
                             if(user.getLogin().equals(login.getText().toString())){
                                 if(user.getPassword().equals(password.getText().toString()))
                                 {
-                                    Intent intent = new Intent(this, MainPage.class);
                                     MainPage.user = user;
+                                    Intent intent = new Intent(this, MainPage.class);
                                     startActivity(intent);
                                     break;
                                 }
