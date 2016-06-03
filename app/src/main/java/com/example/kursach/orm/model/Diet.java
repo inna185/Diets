@@ -75,4 +75,11 @@ public class Diet{
         this.weight = weight;
     }
 
+    public String getNeuron() {
+        return neuron;
+    }
+
+    public void setNeuron(String neuron) {
+        this.neuron = neuron;
+    }
 }

@@ -18,6 +18,11 @@ import com.example.kursach.orm.model.User;
 
 import java.sql.SQLException;
 
+import com.example.kursach.orm.HelperFactory;
+import com.example.kursach.orm.model.Diet;
+
+import java.sql.SQLException;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     Button btnlogin, btnreg;
     @Override

@@ -3,7 +3,10 @@ package com.example.kursach.orm.dao;
 import java.sql.SQLException;
 
 import com.example.kursach.orm.model.Diet;
+import com.example.kursach.orm.model.User;
 import com.j256.ormlite.dao.BaseDaoImpl;
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 
 import java.util.List;
@@ -33,5 +36,13 @@ public class DietDAO extends BaseDaoImpl<Diet, Integer>{
 
     public void updateDiet(Diet diet) throws SQLException {
         this.update(diet);
+    }
+
+    public List<Diet> getDietByNeuron(String neuron)  throws SQLException{
+        QueryBuilder<Diet, Integer> queryBuilder = queryBuilder();
+        queryBuilder.where().eq("neuron", neuron);
+        PreparedQuery<Diet> preparedQuery = queryBuilder.prepare();
+        List<Diet> dietList =query(preparedQuery);
+        return dietList;
     }
 }

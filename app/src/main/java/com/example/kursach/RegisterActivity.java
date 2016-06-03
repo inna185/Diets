@@ -48,7 +48,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
                     user.setName(etName.getText().toString());
                     user.setAge(etAge.getText().toString());
 
-                    Log.d("Register", " etLogin "+etLogin.getText().toString());
+                    Log.d("Register", " etLogin " + etLogin.getText().toString());
 
                     try {
                         for (User user1 : HelperFactory.getHelper().getUserDAO().getAllUsers()){
@@ -62,7 +62,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
                         HelperFactory.getHelper().getUserDAO().createUser(user);
                         Log.d("Register", "Reg success");
                         MainPage.user = user;
-                        Intent intent = new Intent(this, MainPage.class);
+                        Intent intent = new Intent(this, TestActivity.class);
                         startActivity(intent);
                     } catch (SQLException e) {
                         e.printStackTrace();
