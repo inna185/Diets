@@ -36,13 +36,17 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch(v.getId()) {
             case R.id.exit:
                 user = null;
-                Intent intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
-
+            case R.id.profile:
+                intent = new Intent(this, Profile.class);
+                startActivity(intent);
+                break;
         }
     }
 }
