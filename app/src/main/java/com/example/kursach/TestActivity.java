@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.kursach.neural.DataNormalization;
 import com.example.kursach.neural.NeuralNetwork;
 import com.example.kursach.orm.HelperFactory;
+import com.example.kursach.orm.model.Diet;
 import com.example.kursach.orm.model.User;
 
 import java.sql.SQLException;
@@ -30,6 +31,9 @@ public class TestActivity extends Activity implements View.OnClickListener{
         etGrouth = (EditText) findViewById(R.id.etGrouth);
         etGoal = (EditText) findViewById(R.id.etGoal);
         etTime = (EditText) findViewById(R.id.etTime);
+        btnResult = (Button) findViewById(R.id.btnResult);
+
+        btnResult.setOnClickListener(this);
     }
 
     @Override
@@ -40,11 +44,17 @@ public class TestActivity extends Activity implements View.OnClickListener{
                 neuralNetwork.study();
                 Integer weight = Integer.valueOf(etWeight.getText().toString());
                 Integer grouth = Integer.valueOf(etGrouth.getText().toString());
-                Double massIndex = DataNormalization.getMassIndex(weight, grouth);
+                Double massIndex = DataNormalization.normalizeMassIndex(DataNormalization.getMassIndex(weight, grouth));
                 Double goal = DataNormalization.normalizeWeight(Double.valueOf(etGoal.getText().toString()));
                 Double time = DataNormalization.normalizePeriod(Double.valueOf(etTime.getText().toString()));
-                //double d = {};
-                //neuralNetwork.getWinner();
+                double[] d = {massIndex, time, goal};
+                Integer winner = neuralNetwork.getWinner(d);
+                try {
+                    Diet diet = HelperFactory.getHelper().getDietDAO().getDietByNeuron(winner.toString()).get(0);
+                    MainPage.user.setDiet(diet);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
         }
     }
 }
