@@ -10,6 +10,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.example.kursach.orm.DatabaseHelper;
+import com.example.kursach.orm.HelperFactory;
+import com.example.kursach.orm.model.User;
+
+import java.sql.SQLException;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     Button btnlogin, btnreg;
@@ -26,6 +33,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnreg.setOnClickListener(this);
         btnlogin.setOnClickListener(this);
+
+        try {
+            for (User user1 : HelperFactory.getHelper().getUserDAO().getAllUsers()){
+                if(!"admin".equals(user1.getLogin())){
+                    User user = new User();
+                    user.setLogin("admin");
+                    user.setPassword("admin");
+                    HelperFactory.getHelper().getUserDAO().createUser(user);
+                    break;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -37,12 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }

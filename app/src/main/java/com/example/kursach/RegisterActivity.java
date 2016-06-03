@@ -51,7 +51,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
                     Log.d("Register", " etLogin "+etLogin.getText().toString());
 
                     try {
-                        HelperFactory.getHelper().getUserDAO().getAllUsers();
                         for (User user1 : HelperFactory.getHelper().getUserDAO().getAllUsers()){
                             if(user.getLogin().equals(user1.getLogin())){
                                 Toast toast = Toast.makeText(getApplicationContext(),

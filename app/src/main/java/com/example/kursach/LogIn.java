@@ -27,8 +27,12 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
+        A: switch(v.getId()){
             case R.id.login:
+                if(login.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
+                    Intent intent = new Intent(this, Admin.class);
+                    startActivity(intent);
+                }
                 if (login.getText().length()!=0 && password.getText().length()!=0) {
                     try {
                         HelperFactory.getHelper().getUserDAO().getAllUsers();
@@ -39,13 +43,13 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
                                     MainPage.user = user;
                                     Intent intent = new Intent(this, MainPage.class);
                                     startActivity(intent);
-                                    break;
+                                    break A;
                                 }
                                 else {
                                 Toast toast = Toast.makeText(getApplicationContext(),
                                         "Неверный пароль!", Toast.LENGTH_SHORT);
                                 toast.show();
-                                break;
+                                break A;
                                 }
                             }
                         }

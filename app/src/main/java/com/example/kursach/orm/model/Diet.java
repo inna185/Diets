@@ -6,6 +6,16 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "diet")
 public class Diet{
+    public Diet() {
+    }
+
+    public Diet(String name, String time, String weight, String description, String neuron) {
+        this.name = name;
+        this.time = time;
+        this.weight = weight;
+        this.description = description;
+        this.neuron = neuron;
+    }
 
     @DatabaseField(generatedId = true)
     private int id;
