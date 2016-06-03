@@ -50,15 +50,17 @@
         android:id="@+id/etWeight"
         android:layout_alignBottom="@+id/textView8"
         android:layout_toEndOf="@+id/textView9"
-        android:layout_alignStart="@+id/etGoal" />
+        android:layout_alignStart="@+id/etGoal"
+        android:layout_marginRight="15dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:width="415px"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:id="@+id/etGrouth"
         android:layout_above="@+id/textView10"
+        android:layout_marginRight="15dp"
         android:layout_alignStart="@+id/etWeight" />
 
     <EditText
@@ -67,17 +69,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/etGoal"
         android:layout_above="@+id/textView11"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="15dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:width="250px"
         android:layout_marginLeft="10dp"
         android:layout_height="wrap_content"
         android:id="@+id/etTime"
         android:layout_alignBottom="@+id/textView11"
-        android:layout_alignEnd="@+id/etGoal"
-        android:layout_alignStart="@+id/etGoal" />
+        android:layout_marginRight="15dp"
+        android:layout_alignStart="@+id/etGoal"
+        android:layout_alignEnd="@+id/etGrouth" />
 
     <ImageView
         android:layout_width="wrap_content"

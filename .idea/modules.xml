@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Diets.iml" filepath="$PROJECT_DIR$/Diets.iml" />
       <module fileurl="file://$PROJECT_DIR$/Kursach.iml" filepath="$PROJECT_DIR$/Kursach.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ormlite-android-4.48/ormlite-android-4.48.iml" filepath="$PROJECT_DIR$/ormlite-android-4.48/ormlite-android-4.48.iml" />

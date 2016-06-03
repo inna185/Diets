@@ -20,8 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivity"
-            android:label="@string/app_name" />
+            android:name=".RegisterActivity" />
         <activity android:name=".LogIn" />
         <activity android:name=".MainPage"></activity>
         <activity android:name=".TestActivity"></activity>
