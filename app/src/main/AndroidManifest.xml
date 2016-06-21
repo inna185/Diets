@@ -24,7 +24,9 @@
         <activity android:name=".MainPage" />
         <activity android:name=".Admin" />
         <activity android:name=".TestActivity" />
-        <activity android:name=".Profile"></activity>
+        <activity android:name=".Profile" />
+        <activity android:name=".Diets" />
+        <activity android:name=".DietActivity"></activity>
     </application>
 
 </manifest>

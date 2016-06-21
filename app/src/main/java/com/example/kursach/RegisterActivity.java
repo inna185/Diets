@@ -31,7 +31,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
+        A: switch(v.getId()){
             case R.id.reg:
                 Log.d("Register", " Click reg");
                 if (etAge.getText().toString().length()>0 && Integer.valueOf(etAge.getText().toString()) < 0 ||
@@ -56,7 +56,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
                                 Toast toast = Toast.makeText(getApplicationContext(),
                                         "Пользователь с таким логином уже существует!", Toast.LENGTH_SHORT);
                                 toast.show();
-                                break;
+                                break A;
                             }
                         }
                         HelperFactory.getHelper().getUserDAO().createUser(user);

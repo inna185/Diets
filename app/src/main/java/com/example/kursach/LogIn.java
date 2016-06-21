@@ -3,6 +3,7 @@ package com.example.kursach;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,14 +39,19 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
                         HelperFactory.getHelper().getUserDAO().getAllUsers();
                         for (User user : HelperFactory.getHelper().getUserDAO().getAllUsers()){
                             if(user.getLogin().equals(login.getText().toString())){
+                                Log.d("Register", " etLogin " + login.getText().toString());
+
                                 if(user.getPassword().equals(password.getText().toString()))
                                 {
+                                    Log.d("Register", " pass " + password.getText().toString());
+
                                     MainPage.user = user;
                                     Intent intent = new Intent(this, MainPage.class);
                                     startActivity(intent);
                                     break A;
                                 }
                                 else {
+                                    Log.d("Register", " passU " + user.getPassword().toString());
                                 Toast toast = Toast.makeText(getApplicationContext(),
                                         "Неверный пароль!", Toast.LENGTH_SHORT);
                                 toast.show();

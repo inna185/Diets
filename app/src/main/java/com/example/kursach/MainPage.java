@@ -3,6 +3,7 @@ package com.example.kursach;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         tvHeader = (TextView) findViewById(R.id.tvHeader);
         tvDescription = (TextView) findViewById(R.id.tvDescription);
         tvDescription2 = (TextView) findViewById(R.id.tvDescription2);
-
+        tvDescription2.setMovementMethod(new ScrollingMovementMethod());
         tvHeader.setText("Здравствуйте, "+user.getName().toString());
         if (user.getDiet() == null)
         tvDescription.setText("Для того, чтобы определить подходящую для Вас диету, пройдите тест!");
@@ -39,8 +40,17 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         Intent intent;
         switch(v.getId()) {
             case R.id.exit:
+                try {
+                    HelperFactory.getHelper().getUserDAO().updateUser(user);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 user = null;
                 intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.diet:
+                intent = new Intent(this, Diets.class);
                 startActivity(intent);
                 break;
             case R.id.profile:

@@ -7,22 +7,31 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.kursach.MainPage">
+    tools:context="com.example.kursach.Diets">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/tvHeader"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Диеты"
+        android:id="@+id/textView17"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="30dp" />
+        android:textSize="50dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView17"
+        android:layout_above="@+id/test" />
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout2"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true">
 
@@ -32,8 +41,9 @@
             android:id="@+id/home"
             android:src="@drawable/home"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="10dp"
-            android:onClick="onClick"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -41,8 +51,9 @@
             android:id="@+id/diet"
             android:src="@drawable/diet"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="10dp"
-            android:onClick="onClick"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="10dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -50,8 +61,9 @@
             android:id="@+id/profile"
             android:src="@drawable/profile"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="10dp"
-            android:onClick="onClick"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -59,33 +71,20 @@
             android:id="@+id/exit"
             android:src="@drawable/exit"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="10dp"
-            android:onClick="onClick" />
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp" />
     </LinearLayout>
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/tvDescription"
-        android:layout_below="@+id/tvHeader"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="40dp"
+        android:text="Пройти тест"
+        android:id="@+id/test"
+        android:layout_above="@+id/linearLayout2"
         android:layout_alignParentEnd="true"
-        android:textAlignment="center" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/tvDescription2"
-        android:scrollbars="vertical"
-        android:height="500px"
-        android:layout_below="@+id/tvDescription"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="42dp"
-        android:layout_alignEnd="@+id/tvDescription"
-        android:textAlignment="center" />
+        android:background="#b9d5ba"
+        android:onClick="onClick"/>
 
 </RelativeLayout>

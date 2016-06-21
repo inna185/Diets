@@ -11,7 +11,7 @@ import com.example.kursach.orm.HelperFactory;
 
 import java.sql.SQLException;
 
-public class Profile extends AppCompatActivity implements View.OnClickListener{
+public class Profile extends AppCompatActivity implements View.OnClickListener {
     private EditText name;
     private EditText age;
     private EditText width;
@@ -32,13 +32,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
 
         name.setText(MainPage.user.getName().toString());
         age.setText(MainPage.user.getAge().toString());
-        if(MainPage.user.getWeight() == null){
-            width.setCursorVisible(false);
-        }else{
+        if (MainPage.user.getWeight() != null) {
             width.setText(MainPage.user.getWeight().toString());
-        }if(MainPage.user.getGrowth() == null){
-            width.setCursorVisible(false);
-        }else{
+        }
+        if (MainPage.user.getGrowth() != null) {
             growth.setText(MainPage.user.getGrowth().toString());
         }
         login.setText(MainPage.user.getLogin().toString());
@@ -48,7 +45,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         Intent intent;
-        switch(v.getId()) {
+        switch (v.getId()) {
             case R.id.update:
                 MainPage.user.setName(name.getText().toString());
                 MainPage.user.setAge(age.getText().toString());
@@ -68,8 +65,17 @@ public class Profile extends AppCompatActivity implements View.OnClickListener{
                 toast.show();
                 break;
             case R.id.exit:
+                try {
+                    HelperFactory.getHelper().getUserDAO().updateUser(MainPage.user);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 MainPage.user = null;
                 intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.diet:
+                intent = new Intent(this, Diets.class);
                 startActivity(intent);
                 break;
             case R.id.home:
